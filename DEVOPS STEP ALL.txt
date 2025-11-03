@@ -180,7 +180,20 @@ Q9) To Perform various GIT operations on local and Remote repositories.
 
 
 
-
+10) Pull Ubuntu image in Docker and execute bash
+sudo apt update -y
+sudo apt install docker.io -y
+docker --version
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo systemctl status docker
+sudo docker pull ubuntu
+sudo docker images
+sudo docker run -it ubuntu bash
+ls
+pwd
+cat /etc/os-release
+exit
 
 
 Q11) Execute basic command in git
@@ -211,42 +224,70 @@ Q11) Execute basic command in git
 
 
 
+12)Pull Docker images, list the Docker images currently stored on your machine, remove an image that you no longer need.
+sudo su
+sudo yum update -y
+sudo yum install docker -y
+service docker start
+service docker status
+docker pull nginx
+docker run -d -p 80:80 --name mywebapp nginx
+http:// (IPv4 address)
+
+
+
+
+
+
+13)Execute basic commands in Docker
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+sudo docker info
+sudo docker pull ubuntu
+sudo docker images
+sudo docker run ubuntu echo "Hello From Container"
+sudo ps
+sudo ps -a
+sudo docker stop <id>
+sudo docker rm <id>
+sudo docker rmi unbuntu
+
+
+
+
+14)Execute basic commands in git
+→ git --version
+→ mkdir exp
+→ cd exp
+→ git status
+→ git config --global user.email " "
+→ git config --global user.name " "
+→ git config --list 
+→ git init
+→ echo "Hello Git" > exp 9.txt
+→ git status
+→ git add exp9.txt
+→ git commit -m "Added exp9.txt file"
+→ git log --oneline
+
 
 Q15) Create a Git repository, add a new file to the repository, Commit the changes with a meaningful message, Push the changes to a remote repository.
-Step 1️: Create a new folder and initialize Git
-      → mkdir myproject
-      → cd myproject
-      → git init
-      ✅ This creates a new local Git repository.
-Step 2️: Create a new file
-      → echo "This is my first Git file" > readme.txt
-      → Or you can create it manually using Notepad or VS Code.
-Step 3️: Check the repository status
-      → git status
-     ✅ Shows which files are untracked (not yet added to Git).
-
-Step 4️: Add the file to the staging area
-      → git add readme.txt
-      ✅ This stages the file to be committed.
-
-Step 5️: Commit the file with a meaningful message
-       → git commit -m "Added readme.txt as initial project file"
-       ✅ This saves the change in the local Git history.
-
-Step 6️: Connect to a remote GitHub repository
-     👉 Go to GitHub.com, click New Repository, and copy the HTTPS URL.
-     For example: https://github.com/username/myproject.git
-
-Then connect it to your local repo:
-git remote add origin https://github.com/username/myproject.git
-
-Step 7️: Push your changes to GitHub
-      → git push -u origin main
-(If your branch is called master, replace main with master.)
-✅ This uploads your local commits to the remote repository.
-
-Step 8️: Verify
-      → Go to your GitHub repository page — you’ll see your file and commit message there 🎉
+→ git --version
+→ mkdir exp
+→ cd exp
+→ git status
+→ git config --global user.email " "
+→ git config --global user.name " "
+→ git init
+→ echo "Hello Git" > exp 9. txh
+→ add exp.txt
+→ Commit -m "Added exp.txt file"
+→ remote add origin  https. //grthub.com/VaibhaviAnnam/expst
+→ remote - v
+→ push origin master/main or git push -u origin master/main
+→ git log --oneline
 
 
 
@@ -295,54 +336,21 @@ Step 5: Stage view & console output
 
 
 17) Build a Docker image from the Docker file, run a Docker container using the built image.0
-Step 1: Create a Project Folder
-       → mkdir docker-demo
-       → cd docker-demo
-Step 2: Create a Simple Application
-       Example: A basic “Hello World” Python app
-       Create a file named app.py:
-       print("Hello, World! from Docker Container")
+sudo yum update -y
+sudo yum imstall docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+mkdir demo
+cd demo 
+echo 'print("Hello from Docker")' > app.py
+nano Dockerfile : FROM python:3.9-slim
+                  WORKDIR /app
+                  COPY . /app
+                  CMD ["python3",  "app.py"]
+sudo docker build -t myimage .
+sudo docker images
+sudo docker run my image
 
-Step 3: Create a Dockerfile
-       → Create a file named Dockerfile (no extension)
-      # Use an official Python base image
-      FROM python:3.9-slim
-      # Set working directory inside container
-      WORKDIR /app
-      # Copy application files into container
-      COPY . /app
-      # Command to run the app
-      CMD ["python", "app.py"]
-✅ Explanation:
-FROM → base image to start with
-WORKDIR → sets default directory
-COPY → copies project files
-CMD → command to execute when container starts
-
-Step 4: Build the Docker Image
-       Run this command in the same directory as your Dockerfile:
-       → sudo docker build -t hello-docker .
-      ✅ -t is used to tag (name) the image.
-
-Step 5: Verify Image Creation
-       → sudo docker images
-       ✅ You’ll see something like:
-REPOSITORY       TAG       IMAGE ID       CREATED         SIZE
-hello-docker     latest    a1b2c3d4e5f6   2 minutes ago   125MB
-
-Step 6️: Run the Docker Container
-sudo docker run hello-docker
-✅ Output:
-Hello, World! from Docker Container
-
-Step 7️: (Optional) Run in Interactive Mode
-sudo docker run -it hello-docker /bin/bash
-✅ Opens a terminal inside the running container.
-
-Step 8: Stop & Remove Container (Optional)
-       sudo docker ps -a           # list all containers
-       sudo docker stop <container_id>
-       sudo docker rm <container_id>
 
 
 
