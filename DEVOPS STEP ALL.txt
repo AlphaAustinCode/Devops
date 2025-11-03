@@ -8,7 +8,7 @@ Step 3: Create new key pair → Name it
 Step 4: Network settings → allow SSH, HTTP, HTTPS
 Step 5: Then click Launch Instance
 Step 6: Open PuTTY
-Step 7: For Host Name → click on the instance created on AWS, copy the IP address, and paste it here.
+Step 7: For Host Name → click on the instance created on AWS, copy the IPv4 address, and paste it here.
 Step 8: Connection type: SSH
 Step 8: On the left-hand side, under Connection → SSH, click on Auth
 Step 9: Click on Browse → select the downloaded .ppk key
@@ -261,5 +261,6 @@ sudo docker run -it hello-docker /bin/bash
 sudo docker ps -a           # list all containers
 sudo docker stop <container_id>
 sudo docker rm <container_id>
+
 
 
