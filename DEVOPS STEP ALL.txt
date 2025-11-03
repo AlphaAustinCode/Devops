@@ -57,7 +57,6 @@ Q5) Create a slave node in Jenkins
  MAKE SURE YOU HAVE JAVA JDK VERSION 17 0R 21 INSTALLED 
 Step 1: Open jenkis dashboard 
         > open Settings 
-        → Enter Manage Jenkins any name 
         → Nodes → New node 
         → Select permanent agent  
         → ok 
@@ -325,6 +324,7 @@ Step 8: Stop & Remove Container (Optional)
        sudo docker ps -a           # list all containers
        sudo docker stop <container_id>
        sudo docker rm <container_id>
+
 
 
 
