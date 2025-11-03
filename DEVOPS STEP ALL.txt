@@ -17,6 +17,8 @@ Step 11: A terminal will open → login as: ec2-user
          It will show something like: ec2-user@ip
 
 
+
+
 Q2) Install Docker on AWS instance and show the version of it.
 
 Same as previous, just run the below commands:
@@ -27,12 +29,16 @@ sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
 
-Q3) Install git on AWS instance and show the version of it.
 
+
+
+Q3) Install git on AWS instance and show the version of it.
 Same as previous, just run the below commands:
 sudo yum update -y
 sudo yum install -y
 git --version
+
+
 
 
 Q4) Compile project in Jenkins using Maven.
@@ -73,6 +79,9 @@ Step 4: Slave node
         → Build now (green tick should be there)
 
 
+
+
+
 Q6) Assign project to SLave Node & build project
 Step 1: Open jenkis dashboard
         > open Settings
@@ -99,6 +108,9 @@ Step 4: Slave node
         → Apply & Save
         → Build now (green tick should be there)
 
+
+
+
 Q7) Run Selenium Tests in Jenkins Using Maven
 Step 1: Dashboard → New Item → Enter name → freestyle project → save
 Step 2: Source Code Management → Git → Repo URL
@@ -108,6 +120,9 @@ Step 4: Build Steps → Execute Windows batch command →
         java Sel (filename)
       → Save
 Step 5: Build Now → Click on #1 in Build box
+
+
+
 
 
 Q8) Build pipeline project in Jenkins
@@ -120,40 +135,7 @@ Step 4: Build now (green tick should be there)
 Step 5: Stage view & console output
 
 
-Q16) Setup basic CI pipeline using a CI/Cd tool (eg.Jenkins), configure the pipeline to build a sample project (eg. Hello world application.
-Step 1: Dashboard → New Item → Enter name → pipeline → save
-Step 2: Go to Pipeline created 
-        Scroll down to definition → under Pipeline script → 
-        → Big text (paste the sample code )
 
-pipeline {
-    agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building Hello World project...'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests...'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying application...'
-                echo 'Hello World!'
-            }
-        }
-    }
-}
-
-Step 3: Apply & Save
-Step 4: Build now (green tick should be there)
-Step 5: Stage view & console output
 
 
 Q14) Execute basic command in git
@@ -206,6 +188,94 @@ Step 15: View Remote Repositories
        → git remote -v
        ✅ Lists the linked remote repositories.
 
+
+
+
+
+
+
+Q15) Create a Git repository, add a new file to the repository, Commit the changes with a meaningful message, Push the changes to a remote repository.
+Step 1️: Create a new folder and initialize Git
+      → mkdir myproject
+      → cd myproject
+      → git init
+      ✅ This creates a new local Git repository.
+Step 2️: Create a new file
+      → echo "This is my first Git file" > readme.txt
+      → Or you can create it manually using Notepad or VS Code.
+Step 3️: Check the repository status
+      → git status
+     ✅ Shows which files are untracked (not yet added to Git).
+
+Step 4️: Add the file to the staging area
+      → git add readme.txt
+      ✅ This stages the file to be committed.
+
+Step 5️: Commit the file with a meaningful message
+       → git commit -m "Added readme.txt as initial project file"
+       ✅ This saves the change in the local Git history.
+
+Step 6️: Connect to a remote GitHub repository
+     👉 Go to GitHub.com, click New Repository, and copy the HTTPS URL.
+     For example: https://github.com/username/myproject.git
+
+Then connect it to your local repo:
+git remote add origin https://github.com/username/myproject.git
+
+Step 7️: Push your changes to GitHub
+      → git push -u origin main
+(If your branch is called master, replace main with master.)
+✅ This uploads your local commits to the remote repository.
+
+Step 8️: Verify
+      → Go to your GitHub repository page — you’ll see your file and commit message there 🎉
+
+
+
+
+
+
+
+Q16) Setup basic CI pipeline using a CI/Cd tool (eg.Jenkins), configure the pipeline to build a sample project (eg. Hello world application.
+Step 1: Dashboard → New Item → Enter name → pipeline → save
+Step 2: Go to Pipeline created 
+        Scroll down to definition → under Pipeline script → 
+        → Big text (paste the sample code )
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building Hello World project...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                echo 'Hello World!'
+            }
+        }
+    }
+}
+
+Step 3: Apply & Save
+Step 4: Build now (green tick should be there)
+Step 5: Stage view & console output
+
+
+
+
+
+
 17) Build a Docker image from the Docker file, run a Docker container using the built image.0
 Step 1: Create a Project Folder
        → mkdir docker-demo
@@ -238,29 +308,24 @@ Step 4: Build the Docker Image
 
 Step 5: Verify Image Creation
        → sudo docker images
-  ✅ You’ll see something like:
-
+       ✅ You’ll see something like:
 REPOSITORY       TAG       IMAGE ID       CREATED         SIZE
 hello-docker     latest    a1b2c3d4e5f6   2 minutes ago   125MB
 
-6️⃣ Run the Docker Container
+Step 6️: Run the Docker Container
 sudo docker run hello-docker
-
-
 ✅ Output:
-
 Hello, World! from Docker Container
 
-7️⃣ (Optional) Run in Interactive Mode
+Step 7️: (Optional) Run in Interactive Mode
 sudo docker run -it hello-docker /bin/bash
-
-
 ✅ Opens a terminal inside the running container.
 
-8️⃣ Stop & Remove Container (Optional)
-sudo docker ps -a           # list all containers
-sudo docker stop <container_id>
-sudo docker rm <container_id>
+Step 8: Stop & Remove Container (Optional)
+       sudo docker ps -a           # list all containers
+       sudo docker stop <container_id>
+       sudo docker rm <container_id>
+
 
 
 
