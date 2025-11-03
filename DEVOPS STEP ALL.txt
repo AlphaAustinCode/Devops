@@ -1,0 +1,190 @@
+Q1) Create AWS instance & connect it to PuTTY
+Step 1: Open AWS
+Step 2: EC2 → Launch Instance → Name it
+Step 3: Create new key pair → Name it
+        Key pair type: RSA
+        Private key file format: .ppk
+        (Download the .ppk key)
+Step 4: Network settings → allow SSH, HTTP, HTTPS
+Step 5: Then click Launch Instance
+Step 6: Open PuTTY
+Step 7: For Host Name → click on the instance created on AWS, copy the IP address, and paste it here.
+Step 8: Connection type: SSH
+Step 8: On the left-hand side, under Connection → SSH, click on Auth
+Step 9: Click on Browse → select the downloaded .ppk key
+Step 10: Then click Open
+Step 11: A terminal will open → login as: ec2-user
+         It will show something like: ec2-user@ip
+
+
+Q2) Install Docker on AWS instance and show the version of it.
+
+Same as previous, just run the below commands:
+
+sudo yum update -y
+sudo yum install docker -y
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+
+
+Q4) Compile project in Jenkins using Maven.
+Step 1: Dashboard → New Item → Enter name → freestyle project → save
+Step 2: Source Code Management → Git → Repo URL
+Step 3: Branch to build → /main
+Step 4: Build Steps → Execute Windows batch command →
+        javac Maven.java
+        java Maven (filename)
+      → Save
+Step 5: Build Now → Click on #1 in Build box
+
+
+
+Q5) Create a slave node in Jenkins 
+ MAKE SURE YOU HAVE JAVA JDK VERSION 17 0R 21 INSTALLED 
+Step 1: Open jenkis dashboard 
+        > open Settings 
+        → Enter Manage Jenkins any name 
+        → Nodes → New node 
+        → Select permanent agent  
+        → ok 
+Step 2: Fill the following fields 
+        → No. of Executors 1 
+        → Remote Root directory (create a folder in C drive as jenkins_agent copy that path & paste) 
+        → Labels: windows 
+        → launch method: launch agent by connecting it to the controller
+        → Save 
+Step 3: Click or See the created node 
+        → Copy command for windows & paste in the cmd of the folder you created 
+        → It should show - Info: connected
+Step 4: Slave node
+        → Dashboard → New Item → freestyle → create
+        → click on the created project 
+        → Go to configure to under 
+        → Under"Restrict where this project can ran" enter windows 
+        → Apply & Save 
+        → Build now (green tick should be there)
+
+
+Q6) Assign project to SLave Node & build project
+Step 1: Open jenkis dashboard
+        > open Settings
+        → Enter Manage Jenkins any name
+        → Nodes → New node
+        → Select permanent agent
+        → ok
+Step 2: Fill the following fields
+        → No. of Executors 1
+        → Remote new Root directory (create a folder in C drive as new_jenkins_agent copy  that path & paste)
+        → Labels: windows_new
+        → launch method: launch agent by connecting it to the controller
+        → Save
+Step 3: Click or See the created node
+        → Copy command for windows & paste in the cmd of the folder you created
+        → It should show - Info: connected
+Step 4: Slave node
+        → Dashboard → New Item → freestyle → create
+        → click on the created project
+        → Go to configure to under
+        → Under "Restrict where this project can ran" enter windows_new
+        → In Build Step : Execute Windows batch command 
+                          In box write → echo Building non-mave project dir 
+        → Apply & Save
+        → Build now (green tick should be there)
+
+
+Q8) Build pipeline project in Jenkins
+Step 1: Dashboard → New Item → Enter name → pipeline → save
+Step 2: Go to Pipeline created 
+        Scroll down to definition → under Pipeline script → 
+        → Big text (paste the sample code )
+Step 3: Apply & Save
+Step 4: Build now (green tick should be there)
+Step 5: Stage view & console output
+
+
+Q16) Setup basic CI pipeline using a CI/Cd tool (eg.Jenkins), configure the pipeline to build a sample project (eg. Hello world application.
+Step 1: Dashboard → New Item → Enter name → pipeline → save
+Step 2: Go to Pipeline created 
+        Scroll down to definition → under Pipeline script → 
+        → Big text (paste the sample code )
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building Hello World project...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                echo 'Hello World!'
+            }
+        }
+    }
+}
+
+Step 3: Apply & Save
+Step 4: Build now (green tick should be there)
+Step 5: Stage view & console output
+
+
+Q14. Execute basic command in git
+Step 1: Check Git Version 
+      → git --version
+      ✅ Shows if Git is installed and its version.
+Step 2: Configure Git (first time only)
+      → git config --global user.name "Your Name"
+      → git config --global user.email "youremail@example.com"
+      ✅ Sets your name and email for commits.
+Step 3: Initialize a Repository
+      → git init
+      ✅ Creates a new Git repository in your current folder.
+Step 4: Check Repository Status
+      → git status
+      ✅ Shows which files are modified, staged, or untracked.
+Step 5: Add Files to Staging Area
+      → git add filename.txt or add all files → git add .
+      ✅ Prepares files for commit.
+Step 6: Commit Changes
+      → git commit -m "Added new feature"
+      ✅ Saves the staged changes to local repository.
+Step 7: View Commit History
+      → git log
+      ✅ Displays a list of commits with author, date, and message.
+Step 8: Connect to a Remote Repository (e.g., GitHub)
+      → git remote add origin https://github.com/username/repo.git
+      ✅ Links your local repo to a remote one.
+Step 9: Push Changes to Remote Repository
+      → git push -u origin main
+      ✅ Uploads commits to GitHub (branch = main).
+Step 10: Pull Latest Changes from Remote
+       → git pull origin main
+       ✅ Downloads and merges changes from GitHub.
+Step 11: Clone an Existing Repository
+       → git clone https://github.com/username/repo.git
+       ✅ Makes a local copy of a remote repository.
+Step 12: Create and Switch Branches
+       → git branch new-feature
+       → git checkout new-feature
+       ✅ Creates and moves to a new branch.
+Step 13: Merge Branch
+       → git checkout main
+       → git merge new-feature
+       ✅ Combines changes from another branch into main.
+Step 14: Remove a File
+       → git rm filename.txt
+       → git commit -m "Removed filename.txt"
+Step 15: View Remote Repositories
+       → git remote -v
+       ✅ Lists the linked remote repositories.
