@@ -128,6 +128,32 @@ Step 1: Dashboard → New Item → Enter name → pipeline → save
 Step 2: Go to Pipeline created 
         Scroll down to definition → under Pipeline script → 
         → Big text (paste the sample code )
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building Hello World project...'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                echo 'Hello World!'
+            }
+        }
+    }
+}
+
 Step 3: Apply & Save
 Step 4: Build now (green tick should be there)
 Step 5: Stage view & console output
@@ -323,6 +349,7 @@ Step 8: Stop & Remove Container (Optional)
        sudo docker ps -a           # list all containers
        sudo docker stop <container_id>
        sudo docker rm <container_id>
+
 
 
 
