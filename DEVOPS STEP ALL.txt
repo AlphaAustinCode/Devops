@@ -27,7 +27,7 @@ sudo systemctl start docker
 sudo systemctl enable docker
 docker --version
 
-Q2) Install git on AWS instance and show the version of it.
+Q3) Install git on AWS instance and show the version of it.
 
 Same as previous, just run the below commands:
 sudo yum update -y
@@ -261,4 +261,5 @@ sudo docker run -it hello-docker /bin/bash
 sudo docker ps -a           # list all containers
 sudo docker stop <container_id>
 sudo docker rm <container_id>
+
 
