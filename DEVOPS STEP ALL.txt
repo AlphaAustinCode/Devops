@@ -161,58 +161,52 @@ Step 5: Stage view & console output
 
 
 
-
-Q14) Execute basic command in git
-Step 1: Check Git Version 
-      → git --version
-      ✅ Shows if Git is installed and its version.
-Step 2: Configure Git (first time only)
-      → git config --global user.name "Your Name"
-      → git config --global user.email "youremail@example.com"
-      ✅ Sets your name and email for commits.
-Step 3: Initialize a Repository
-      → git init
-      ✅ Creates a new Git repository in your current folder.
-Step 4: Check Repository Status
-      → git status
-      ✅ Shows which files are modified, staged, or untracked.
-Step 5: Add Files to Staging Area
-      → git add filename.txt or add all files → git add .
-      ✅ Prepares files for commit.
-Step 6: Commit Changes
-      → git commit -m "Added new feature"
-      ✅ Saves the staged changes to local repository.
-Step 7: View Commit History
-      → git log
-      ✅ Displays a list of commits with author, date, and message.
-Step 8: Connect to a Remote Repository (e.g., GitHub)
-      → git remote add origin https://github.com/username/repo.git
-      ✅ Links your local repo to a remote one.
-Step 9: Push Changes to Remote Repository
-      → git push -u origin main
-      ✅ Uploads commits to GitHub (branch = main).
-Step 10: Pull Latest Changes from Remote
-       → git pull origin main
-       ✅ Downloads and merges changes from GitHub.
-Step 11: Clone an Existing Repository
-       → git clone https://github.com/username/repo.git
-       ✅ Makes a local copy of a remote repository.
-Step 12: Create and Switch Branches
-       → git branch new-feature
-       → git checkout new-feature
-       ✅ Creates and moves to a new branch.
-Step 13: Merge Branch
-       → git checkout main
-       → git merge new-feature
-       ✅ Combines changes from another branch into main.
-Step 14: Remove a File
-       → git rm filename.txt
-       → git commit -m "Removed filename.txt"
-Step 15: View Remote Repositories
-       → git remote -v
-       ✅ Lists the linked remote repositories.
+Q9) To Perform various GIT operations on local and Remote repositories.
+→ git --version
+→ mkdir exp
+→ cd exp
+→ git status
+→ git config --global user.email " "
+→ git config --global user.name " "
+→ git init
+→ echo "Hello Git" > exp 9. txh
+→ add exp.txt
+→ Commit -m "Added exp.txt file"
+→ remote add origin  https. //grthub.com/VaibhaviAnnam/expst
+→ remote - v
+→ push origin master/main or git push -u origin master/main
+→ git log --oneline
 
 
+
+
+
+
+
+Q11) Execute basic command in git
+→ git --version
+→ mkdir exp
+→ cd exp
+→ git status
+→ git config --global user.email " "
+→ git config --global user.name " "
+→ git init
+→ echo "Hello Git" > exp 9. txh
+→ add exp.txt
+→ Commit -m "Added exp.txt file"
+→ remote add origin  https. //grthub.com/VaibhaviAnnam/expst
+→ remote - v
+→ push origin master/main or git push -u origin master/main
+→ git log --oneline
+→ git clone http://githulo #. com /Vabhavi Aram/ exp .afr
+→ cd exp
+→ ls
+→ echo "Thit is my updated file conlent" >7 expat. bar
+→ git status
+→ add exp.txt
+→ git commft -m "updated expait txt file"
+→ git pull origin master -- rebase
+→ git push origin mastr
 
 
 
@@ -349,6 +343,7 @@ Step 8: Stop & Remove Container (Optional)
        sudo docker ps -a           # list all containers
        sudo docker stop <container_id>
        sudo docker rm <container_id>
+
 
 
 
