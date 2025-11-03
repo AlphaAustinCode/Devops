@@ -99,6 +99,16 @@ Step 4: Slave node
         → Apply & Save
         → Build now (green tick should be there)
 
+Q7) Run Selenium Tests in Jenkins Using Maven
+Step 1: Dashboard → New Item → Enter name → freestyle project → save
+Step 2: Source Code Management → Git → Repo URL
+Step 3: Branch to build → /main
+Step 4: Build Steps → Execute Windows batch command →
+        javac Sel.java
+        java Sel (filename)
+      → Save
+Step 5: Build Now → Click on #1 in Build box
+
 
 Q8) Build pipeline project in Jenkins
 Step 1: Dashboard → New Item → Enter name → pipeline → save
@@ -251,3 +261,4 @@ sudo docker run -it hello-docker /bin/bash
 sudo docker ps -a           # list all containers
 sudo docker stop <container_id>
 sudo docker rm <container_id>
+
