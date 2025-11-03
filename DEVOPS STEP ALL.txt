@@ -73,7 +73,7 @@ Step 4: Slave node
         → Dashboard → New Item → freestyle → create
         → click on the created project 
         → Go to configure to under 
-        → Under"Restrict where this project can ran" enter windows 
+        → Under"Restrict where this project can ran" enter: windows 
         → Apply & Save 
         → Build now (green tick should be there)
 
@@ -84,7 +84,6 @@ Step 4: Slave node
 Q6) Assign project to SLave Node & build project
 Step 1: Open jenkis dashboard
         > open Settings
- 
         → Nodes → New node
         → Select permanent agent
         → ok
@@ -324,6 +323,7 @@ Step 8: Stop & Remove Container (Optional)
        sudo docker ps -a           # list all containers
        sudo docker stop <container_id>
        sudo docker rm <container_id>
+
 
 
 
